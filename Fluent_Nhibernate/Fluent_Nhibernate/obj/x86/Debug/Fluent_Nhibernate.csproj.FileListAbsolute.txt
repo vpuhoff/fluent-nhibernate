@@ -1,0 +1,16 @@
+C:\Users\sonhuynh\Documents\Visual Studio 2010\Projects\Example\HuynhLamHoaiSon_Nhibernate_Nov22\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\Fluent_Nhibernate.exe
+C:\Users\sonhuynh\Documents\Visual Studio 2010\Projects\Example\HuynhLamHoaiSon_Nhibernate_Nov22\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\Fluent_Nhibernate.pdb
+C:\Users\sonhuynh\Documents\Visual Studio 2010\Projects\Example\HuynhLamHoaiSon_Nhibernate_Nov22\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\FluentNHibernate.dll
+C:\Users\sonhuynh\Documents\Visual Studio 2010\Projects\Example\HuynhLamHoaiSon_Nhibernate_Nov22\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\Iesi.Collections.dll
+C:\Users\sonhuynh\Documents\Visual Studio 2010\Projects\Example\HuynhLamHoaiSon_Nhibernate_Nov22\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\NHibernate.dll
+C:\Users\sonhuynh\Documents\Visual Studio 2010\Projects\Example\HuynhLamHoaiSon_Nhibernate_Nov22\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\FluentNHibernate.xml
+C:\Users\sonhuynh\Documents\Visual Studio 2010\Projects\Example\HuynhLamHoaiSon_Nhibernate_Nov22\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\Iesi.Collections.xml
+C:\Users\sonhuynh\Documents\Visual Studio 2010\Projects\Example\HuynhLamHoaiSon_Nhibernate_Nov22\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\NHibernate.xml
+C:\Users\sonhuynh\Documents\Visual Studio 2010\Projects\Example\HuynhLamHoaiSon_Nhibernate_Nov22\Fluent_Nhibernate\Fluent_Nhibernate\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\sonhuynh\Documents\Visual Studio 2010\Projects\Example\HuynhLamHoaiSon_Nhibernate_Nov22\Fluent_Nhibernate\Fluent_Nhibernate\obj\x86\Debug\Fluent_Nhibernate.exe
+C:\Users\sonhuynh\Documents\Visual Studio 2010\Projects\Example\HuynhLamHoaiSon_Nhibernate_Nov22\Fluent_Nhibernate\Fluent_Nhibernate\obj\x86\Debug\Fluent_Nhibernate.pdb
+C:\Users\sonhuynh\Documents\Visual Studio 2010\Projects\Example\HuynhLamHoaiSon_Nhibernate_Nov22\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\x64\SQLite.Interop.dll
+C:\Users\sonhuynh\Documents\Visual Studio 2010\Projects\Example\HuynhLamHoaiSon_Nhibernate_Nov22\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\x86\SQLite.Interop.dll
+C:\Users\sonhuynh\Documents\Visual Studio 2010\Projects\Example\HuynhLamHoaiSon_Nhibernate_Nov22\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\System.Data.SQLite.dll
+C:\Users\sonhuynh\Documents\Visual Studio 2010\Projects\Example\HuynhLamHoaiSon_Nhibernate_Nov22\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\sonhuynh\Documents\Visual Studio 2010\Projects\Example\HuynhLamHoaiSon_Nhibernate_Nov22\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\System.Data.SQLite.xml
