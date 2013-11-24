@@ -14,3 +14,19 @@ C:\Users\sonhuynh\Documents\Visual Studio 2010\Projects\Example\HuynhLamHoaiSon_
 C:\Users\sonhuynh\Documents\Visual Studio 2010\Projects\Example\HuynhLamHoaiSon_Nhibernate_Nov22\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\System.Data.SQLite.dll
 C:\Users\sonhuynh\Documents\Visual Studio 2010\Projects\Example\HuynhLamHoaiSon_Nhibernate_Nov22\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\System.Data.SQLite.Linq.dll
 C:\Users\sonhuynh\Documents\Visual Studio 2010\Projects\Example\HuynhLamHoaiSon_Nhibernate_Nov22\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\System.Data.SQLite.xml
+E:\Work\temp\NHibernate\Fluent_Nhibernate\Fluent_Nhibernate\obj\x86\Debug\Fluent_Nhibernate.exe
+E:\Work\temp\NHibernate\Fluent_Nhibernate\Fluent_Nhibernate\obj\x86\Debug\Fluent_Nhibernate.pdb
+E:\Work\temp\NHibernate\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\x64\SQLite.Interop.dll
+E:\Work\temp\NHibernate\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\x86\SQLite.Interop.dll
+E:\Work\temp\NHibernate\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\Fluent_Nhibernate.exe
+E:\Work\temp\NHibernate\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\Fluent_Nhibernate.pdb
+E:\Work\temp\NHibernate\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\FluentNHibernate.dll
+E:\Work\temp\NHibernate\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\Iesi.Collections.dll
+E:\Work\temp\NHibernate\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\NHibernate.dll
+E:\Work\temp\NHibernate\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\System.Data.SQLite.dll
+E:\Work\temp\NHibernate\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\System.Data.SQLite.Linq.dll
+E:\Work\temp\NHibernate\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\FluentNHibernate.xml
+E:\Work\temp\NHibernate\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\Iesi.Collections.xml
+E:\Work\temp\NHibernate\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\NHibernate.xml
+E:\Work\temp\NHibernate\Fluent_Nhibernate\Fluent_Nhibernate\bin\Debug\System.Data.SQLite.xml
+E:\Work\temp\NHibernate\Fluent_Nhibernate\Fluent_Nhibernate\obj\x86\Debug\ResolveAssemblyReference.cache
