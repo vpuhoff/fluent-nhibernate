@@ -8,6 +8,7 @@ using NHibernate.Linq;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Examples.FirstProject
 {
@@ -42,6 +43,14 @@ namespace Examples.FirstProject
                     var bill = new Employee { FirstName = "Bill", LastName = "Taft" };
                     var joan = new Employee { FirstName = "Joan", LastName = "Pope" };
 
+                    // create Projects and Companys
+                    var project1 = new Project { Name = "Project 1", Client = "Client 1" };
+                    var project2 = new Project { Name = "Project 2", Client = "Client 2" };
+                    var project3 = new Project { Name = "Project 3", Client = "Client 3" };
+
+                    var company1 = new Company { Name = "Company 1" };
+                    var company2 = new Company { Name = "Company 2" };
+
                     // add products to the stores, there's some crossover in the products in each
                     // store, because the store-product relationship is many-to-many
                     AddProductsToStore(barginBasin, potatoes, fish, milk, bread, cheese);
@@ -56,58 +65,112 @@ namespace Examples.FirstProject
                     session.SaveOrUpdate(barginBasin);
                     session.SaveOrUpdate(superMart);
 
+                    // add employees to the projects
+                    AddEmployeesToProject(project1, daisy, jack, bill);
+                    AddEmployeesToProject(project2, daisy, sue, joan, jack);
+
+                    //add projects to the company
+                    AddProjectsToCompany(company1, project1, project3);
+                    AddProjectsToCompany(company2, project2);
+
+                    // save projects, this saves everything else via cascading
+                    session.SaveOrUpdate(company1);
+                    session.SaveOrUpdate(company2);
+
                     transaction.Commit();
                 }
             }
 
             using (var session = sessionFactory.OpenSession())
             {
-                // retreive all stores and display them
+
                 using (session.BeginTransaction())
                 {
+                    #region retrieve all products which have Store name like HVN
+                    
                     var productsLinQ = (from p in session.Query<Product>()
                                         where p.StoresStockedIn.Any(x => x.Name.Contains("HVN"))
                                         orderby p.Name
                                         select p).ToList<Product>();
-                    Console.WriteLine("Write by LinQ");
+                    Console.WriteLine("Retrieve all products which have Store name like HVN. Write by LinQ");
                     foreach (Product pro in productsLinQ)
                     {
                         Console.WriteLine(pro.Name);
                     }
+                    Console.WriteLine();
 
-                    //var productsNativeSQL = session.CreateSQLQuery("select pro.Name, pro.Id, pro.Price from Product pro, StoreProduct sp, Store sto where pro.Id = sp.Product_id and sp.Store_id = sto.Id and sto.Name like '%Bar%' order by pro.Name")
-                    //        .AddEntity(typeof(Product)).List();
+                    var productsNativeSQL = session.CreateSQLQuery("select pro.Name, pro.Id, pro.Price from Product pro, StoreProduct sp, Store sto where pro.Id = sp.Product_id and sp.Store_id = sto.Id and sto.Name like '%HVN%' order by pro.Name")
+                            .AddEntity(typeof(Product)).List();
 
-                    //Console.WriteLine("Write by Native SQL");
-                    //foreach (Product pro in productsNativeSQL)
-                    //{
-                    //    Console.WriteLine(pro.Name);
-                    //}
+                    Console.WriteLine("Retrieve all products which have Store name like HVN. Write by Native SQL");
+                    foreach (Product pro in productsNativeSQL)
+                    {
+                        Console.WriteLine(pro.Name);
+                    }
+                    Console.WriteLine();
+                    #endregion
 
+                    #region retrieve all Employee which have Produce price > 3000
+                    
                     var employeeLinQ = (from p in session.Query<Employee>()
                                         where p.Store.Products.Any(x => x.Price > 3000)
                                         orderby p.FirstName
                                         select p).ToList<Employee>();
-                    Console.WriteLine("retreive all Employee which have Produce price > 3000. Write by LinQ");
+                    Console.WriteLine("Retrieve all Employee which have Produce price > 3000. Write by LinQ");
                     foreach (Employee empoyee in employeeLinQ)
                     {
                         Console.WriteLine(empoyee.FirstName + " " + empoyee.LastName);
                     }
+                    Console.WriteLine();
 
                     var employeeNativeSQL = session.CreateSQLQuery(" select emp.FirstName, emp.Id, emp.LastName from Employee emp, StoreProduct sp, Store sto, Product pro where emp.Store_id = sto.Id and pro.Id = sp.Product_id and sp.Store_id = sto.Id and pro.Price > 3000")
                             .AddEntity(typeof(Employee)).List();
 
-                    Console.WriteLine("retreive all Employee which have Produce price > 3000. Write by NativeSQL");
+                    Console.WriteLine("Retrieve all Employee which have Produce price > 3000. Write by NativeSQL");
                     foreach (Employee pro in employeeNativeSQL)
                     {
                         Console.WriteLine(pro.FirstName);
                     }
-
-
+                    Console.WriteLine();
+            #endregion
+                
+                    // retrieve all Projects and their employees
+                    //var project = session.Query<Project>().ToList<Project>();
+                    //foreach (Project pro in project)
+                    //{
+                    //    Console.WriteLine(pro.Name);
+                    //    pro.Employee.ForEach(x => Console.Write(x.FirstName + "    "));
+                    //    Console.WriteLine();
+                    //}
+                    
+                    //// retrieve all Company and their Projects
+                    //var companys = session.Query<Company>().ToList<Company>();
+                    //foreach (Company company in companys)
+                    //{
+                    //    Console.WriteLine(company.Name);
+                    //    company.Project.ForEach(x => Console.Write(x.Name + "    "));
+                    //    Console.WriteLine();
+                    //}
                 }
             }
 
             Console.ReadKey();
+        }
+
+        private static void AddProjectsToCompany(Company company, params Project[] projects)
+        {
+            foreach (Project project in projects)
+            {
+                company.AddProject(project);
+            }
+        }
+
+        private static void AddEmployeesToProject(Project project, params Employee[] employees)
+        {
+            foreach (Employee employee in employees)
+            {
+                project.AddEmployee(employee);
+            }
         }
 
         private static ISessionFactory CreateSessionFactory()

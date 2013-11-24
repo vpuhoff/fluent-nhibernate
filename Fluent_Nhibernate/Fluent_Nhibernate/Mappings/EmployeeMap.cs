@@ -15,6 +15,9 @@ namespace Fluent_Nhibernate.Mappings
             Map(x => x.FirstName);
             Map(x => x.LastName);
             References(x => x.Store);
+            HasManyToMany(x => x.Project)
+             .Cascade.All()
+             .Table("ProjectEmploye");
         }
     }
 }
