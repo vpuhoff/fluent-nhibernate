@@ -7,6 +7,7 @@ using NHibernate;
 using NHibernate.Linq;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
+using System.Linq;
 
 namespace Examples.FirstProject
 {
@@ -64,20 +65,45 @@ namespace Examples.FirstProject
                 // retreive all stores and display them
                 using (session.BeginTransaction())
                 {
-                    //var stores = session.CreateCriteria(typeof(Store))
-                    //    .List<Store>();
+                    var productsLinQ = (from p in session.Query<Product>()
+                                        where p.StoresStockedIn.Any(x => x.Name.Contains("HVN"))
+                                        orderby p.Name
+                                        select p).ToList<Product>();
+                    Console.WriteLine("Write by LinQ");
+                    foreach (Product pro in productsLinQ)
+                    {
+                        Console.WriteLine(pro.Name);
+                    }
 
-                    //foreach (var store in stores)
+                    //var productsNativeSQL = session.CreateSQLQuery("select pro.Name, pro.Id, pro.Price from Product pro, StoreProduct sp, Store sto where pro.Id = sp.Product_id and sp.Store_id = sto.Id and sto.Name like '%Bar%' order by pro.Name")
+                    //        .AddEntity(typeof(Product)).List();
+
+                    //Console.WriteLine("Write by Native SQL");
+                    //foreach (Product pro in productsNativeSQL)
                     //{
-                    //    WriteStorePretty(store);
+                    //    Console.WriteLine(pro.Name);
                     //}
-                    //var mess = (from product in session.Query<Product>()
-                    //            join store in session.Query<Store>()
-                    //                 on product.Category.Id equals store.Id
-                    //            where store.Name == "NVN"
-                    //            && !product.Discontinued
-                    //            select product).ToList();
-                    //Console.WriteLine(mess);
+
+                    var employeeLinQ = (from p in session.Query<Employee>()
+                                        where p.Store.Products.Any(x => x.Price > 3000)
+                                        orderby p.FirstName
+                                        select p).ToList<Employee>();
+                    Console.WriteLine("retreive all Employee which have Produce price > 3000. Write by LinQ");
+                    foreach (Employee empoyee in employeeLinQ)
+                    {
+                        Console.WriteLine(empoyee.FirstName + " " + empoyee.LastName);
+                    }
+
+                    var employeeNativeSQL = session.CreateSQLQuery(" select emp.FirstName, emp.Id, emp.LastName from Employee emp, StoreProduct sp, Store sto, Product pro where emp.Store_id = sto.Id and pro.Id = sp.Product_id and sp.Store_id = sto.Id and pro.Price > 3000")
+                            .AddEntity(typeof(Employee)).List();
+
+                    Console.WriteLine("retreive all Employee which have Produce price > 3000. Write by NativeSQL");
+                    foreach (Employee pro in employeeNativeSQL)
+                    {
+                        Console.WriteLine(pro.FirstName);
+                    }
+
+
                 }
             }
 
