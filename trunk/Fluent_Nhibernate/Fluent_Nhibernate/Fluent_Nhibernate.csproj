@@ -58,11 +58,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Company.cs" />
     <Compile Include="Entities\Employee.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\Project.cs" />
     <Compile Include="Entities\Store.cs" />
+    <Compile Include="Mappings\CompanyMap.cs" />
     <Compile Include="Mappings\EmployeeMap.cs" />
     <Compile Include="Mappings\ProductMap.cs" />
+    <Compile Include="Mappings\ProjectMap.cs" />
     <Compile Include="Mappings\StoreMap.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
