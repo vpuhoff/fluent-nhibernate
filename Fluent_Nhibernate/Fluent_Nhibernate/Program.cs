@@ -29,6 +29,7 @@ namespace Examples.FirstProject
                     // create a couple of Stores each with some Products and Employees
                     var barginBasin = new Store { Name = "Bargin Basin" };
                     var superMart = new Store { Name = "SuperMart" };
+                    var harveynash = new Store { Name = "HVN" };
 
                     var potatoes = new Product { Name = "Potatoes", Price = 3.60 };
                     var fish = new Product { Name = "Fish", Price = 4.49 };
@@ -36,6 +37,7 @@ namespace Examples.FirstProject
                     var bread = new Product { Name = "Bread", Price = 1.29 };
                     var cheese = new Product { Name = "Cheese", Price = 2.10 };
                     var waffles = new Product { Name = "Waffles", Price = 2.41 };
+                    var ipad = new Product { Name = "Ipad", Price = 3100 };
 
                     var daisy = new Employee { FirstName = "Daisy", LastName = "Harrison" };
                     var jack = new Employee { FirstName = "Jack", LastName = "Torrance" };
@@ -55,15 +57,18 @@ namespace Examples.FirstProject
                     // store, because the store-product relationship is many-to-many
                     AddProductsToStore(barginBasin, potatoes, fish, milk, bread, cheese);
                     AddProductsToStore(superMart, bread, cheese, waffles);
+                    AddProductsToStore(harveynash, bread, cheese, milk, ipad);
 
                     // add employees to the stores, this relationship is a one-to-many, so one
                     // employee can only work at one store at a time
                     AddEmployeesToStore(barginBasin, daisy, jack, sue);
                     AddEmployeesToStore(superMart, bill, joan);
+                    AddEmployeesToStore(harveynash, jack, sue, joan);
 
                     // save both stores, this saves everything else via cascading
                     session.SaveOrUpdate(barginBasin);
                     session.SaveOrUpdate(superMart);
+                    session.SaveOrUpdate(harveynash);
 
                     // add employees to the projects
                     AddEmployeesToProject(project1, daisy, jack, bill);
@@ -129,13 +134,14 @@ namespace Examples.FirstProject
                     Console.WriteLine("Retrieve all Employee which have Produce price > 3000. Write by NativeSQL");
                     foreach (Employee pro in employeeNativeSQL)
                     {
-                        Console.WriteLine(pro.FirstName);
+                        Console.WriteLine(pro.FirstName + " " + pro.LastName);
                     }
                     Console.WriteLine();
             #endregion
                 
-                    // retrieve all Projects and their employees
+                    ////retrieve all Projects and their employees
                     //var project = session.Query<Project>().ToList<Project>();
+                    //Console.WriteLine("Retrieve all Projects and their employees");
                     //foreach (Project pro in project)
                     //{
                     //    Console.WriteLine(pro.Name);
@@ -145,6 +151,7 @@ namespace Examples.FirstProject
                     
                     //// retrieve all Company and their Projects
                     //var companys = session.Query<Company>().ToList<Company>();
+                    //Console.WriteLine("Retrieve all Company and their Projects");
                     //foreach (Company company in companys)
                     //{
                     //    Console.WriteLine(company.Name);
